@@ -42,6 +42,25 @@ A continuacion, se puede obserar una tabla con las conexiones que se deben reali
 | Display | 3V3 | GND | LCD_RST | LCD_CS | LCD_RS | LCD_WR | LCD_RD  | LCD_D0 | LCD_D1 | LCD_D2 | LCD_D3 | LCD_D4 | LCD_D5 | LCD_D6 | LCD_D7 
 |ESP32| 3V3 | GND | D32 | D33 | D18 | D4 | D2 | D12 | D13 | D26 | D25 | D21 | D5 | D27 | D14 | 
 
+| Display | ESP32 |
+|:-------:|:-----:|
+| 3V3     | 3V3   |
+| GND     | GND   |
+| LCD_RST | D32   |
+| LCD_CS  | D33   |
+| LCD_RS  | D18   |
+| LCD_WR  | D4    |
+| LCD_RD  | D2    |
+| LCD_D0  | D12   |
+| LCD_D1  | D13   |
+| LCD_D2  | D26   |
+| LCD_D3  | D25   |
+| LCD_D4  | D21   |
+| LCD_D5  | D5    |
+| LCD_D6  | D27   |
+| LCD_D7  | D14   |
+
+
 ### Software
 
 #### Instalacion de Visual Studio Code <img src=".\Imagenes\Logo_VS_Code.png" width="15"/>
