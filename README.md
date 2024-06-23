@@ -1,2 +1,12 @@
-# 3.5_TFT_LCD_Shield_ESP32
- Proyecto de Platformio en VSCode para poder utilizar la pantalla 3.5" TFT LCD Shield (ILI9488 - ILI9486) con un ESP32.)
+_Matias Mansilla_
+# 3.5 TFT LCD Shield con ESP32
+Con el uso de este repositorio podras utilizar la pantalla 3.5" TFT LCD Shield con un ESP32.
+
+# Componentes
+- ESP32
+- Cable USB y Micro-USB
+- 3.5" TFT LCD Shield (ILI9488 - ILI9486)
+- Protoboard
+- Cables
+
+
