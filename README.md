@@ -60,11 +60,11 @@ Para poder descargar el proyecto dirigite al [repositorio en GitHub](https://git
 
 1. Clickea el boton "Code"
 
-<img src=".\Imagenes\Repositorio\Paso_1.png">
+
 
 2. Clckea el boton "Download ZIP"
 
-<img src=".\Imagenes\Repositorio\Paso_2.png">
+
 
 3. Move el .zip a la ruta que desees y descomprimilo.
 
