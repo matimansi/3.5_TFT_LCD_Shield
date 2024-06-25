@@ -8,48 +8,36 @@
 
 TFT_eSPI tft = TFT_eSPI();	// Incluimos o Invocamos libreria custon
 
-//#define TFT_GREY 0x5AEB // New colour
-
 /*
-	DEFINICIONES DE PINES
+	HEADERS (carpeta include)
 */
 
-#define TFT_DC   18
-#define TFT_CS   33
-#define TFT_RST  32
-#define TFT_RD    2
-#define TFT_WR    4
-
-#define TFT_D0   12
-#define TFT_D1   13
-#define TFT_D2   26
-#define TFT_D3   25
-#define TFT_D4   21
-#define TFT_D5   5
-#define TFT_D6   27
-#define TFT_D7   14
+#include <colores.h>		// Algunos colores para usar (en el archivo "TFT_eSPI" hay mas colores)
+#include <pines.h>			// Definiciones de los pines	
+#include <fuentes.h>		// Fuentes de texto
 
 /*
-	FUENTES DE TEXTO
+	FUNCIONES
 */
 
-#define LOAD_GLCD   // Font 1. Original Adafruit 8 pixel font needs ~1820 bytes in FLASH
-#define LOAD_FONT2  // Font 2. Small 16 pixel high font, needs ~3534 bytes in FLASH, 96 characters
-#define LOAD_FONT4  // Font 4. Medium 26 pixel high font, needs ~5848 bytes in FLASH, 96 characters
-#define LOAD_FONT6  // Font 6. Large 48 pixel font, needs ~2666 bytes in FLASH, only characters 1234567890:-.apm
-#define LOAD_FONT7  // Font 7. 7 segment 48 pixel font, needs ~2438 bytes in FLASH, only characters 1234567890:.
-#define LOAD_FONT8  // Font 8. Large 75 pixel font needs ~3256 bytes in FLASH, only characters 1234567890:-.
-#define LOAD_GFXFF  // FreeFonts. Include access to the 48 Adafruit_GFX free fonts FF1 to FF48 and custom fonts
-
-#define SMOOTH_FONT
+void testeo_pantalla_general (void);		// Imprime diferentes textos con formato
+void testeo_colores (void);					// Cambia el color del fondo de la pantalla
+void dibujos_graficos (void);				// Grafica distintas figuras
 
 void setup()
 {
 	tft.init();
-	tft.setRotation(1);
+	tft.setRotation(3);		// Horizontal: 1 o 3 | Vertical: 2 o 4
 }
 
 void loop()
+{
+	//testeo_pantalla();
+	testeo_colores;
+	//dibujos_graficos();
+}
+
+void testeo_pantalla (void)
 {
 	// Rellena la pantalla con un color random
 	tft.fillScreen(random(0xFFFF));
@@ -138,4 +126,108 @@ void loop()
 	tft.println((int)fnumber, HEX);		// Print as integer number in Hexadecimal
 	
 	delay(10000);
+}
+
+void testeo_colores (void)
+{
+    tft.fillScreen(NEGRO);
+	delay(1000);
+    tft.fillScreen(AZUL);
+	delay(1000);
+    tft.fillScreen(VERDE);
+	delay(1000);
+    tft.fillScreen(MARRON);
+	delay(1000);
+    tft.fillScreen(VIOLETA);
+	delay(1000);
+    tft.fillScreen(ROJO);
+	delay(1000);
+    tft.fillScreen(ROSA);
+	delay(1000);
+    tft.fillScreen(NARANJA);
+	delay(1000);
+    tft.fillScreen(AMARILLO);
+	delay(1000);
+    tft.fillScreen(BLANCO);
+	delay(1000);
+}
+
+void dibujos_graficos (void)
+{
+    tft.fillScreen(NEGRO);
+
+    int centro_x = tft.width() / 2;  // Calcula el centro horizontal
+    int centro_y = tft.height() / 2; // Calcula el centro vertical
+
+    int ancho_figura = 350;
+    int alto_figura = 280;
+
+    // Dibuja un rectángulo centrado
+    int rectangulo_x = centro_x - ancho_figura / 2;
+    int rectangulo_y = centro_y - alto_figura / 2;
+    tft.drawRect(rectangulo_x, rectangulo_y, ancho_figura, alto_figura, ROJO);
+    delay(2000);
+
+    // Dibuja un rectángulo con bordes redondeados centrado
+    tft.fillScreen(NEGRO);
+    int rectangulo_redondeado_x = centro_x - ancho_figura / 2;
+    int rectangulo_redondeado_y = centro_y - alto_figura / 2;
+    tft.drawRoundRect(rectangulo_redondeado_x, rectangulo_redondeado_y, ancho_figura, alto_figura, 20, VERDE);
+    delay(2000);
+
+    // Rellena un rectángulo con bordes redondeados centrado
+    tft.fillScreen(NEGRO);
+    tft.fillRoundRect(rectangulo_redondeado_x, rectangulo_redondeado_y, ancho_figura, alto_figura, 20, AZUL);
+    delay(2000);
+
+    // Rellena un rectángulo con gradiente vertical centrado
+    tft.fillScreen(NEGRO);
+    tft.fillRectVGradient(rectangulo_redondeado_x, rectangulo_redondeado_y, ancho_figura, alto_figura, ROJO, AMARILLO);
+    delay(2000);
+
+    // Rellena un rectángulo con gradiente horizontal centrado
+    tft.fillScreen(NEGRO);
+    tft.fillRectHGradient(rectangulo_redondeado_x, rectangulo_redondeado_y, ancho_figura, alto_figura, VERDE, AZUL);
+    delay(2000);
+
+    // Dibuja un círculo centrado
+    tft.fillScreen(NEGRO);
+    int circulo_x = centro_x;
+    int circulo_y = centro_y;
+    int radio = min(ancho_figura, alto_figura) / 2;
+    tft.drawCircle(circulo_x, circulo_y, radio, VIOLETA);
+    delay(2000);
+
+    // Rellena un círculo centrado
+    tft.fillScreen(NEGRO);
+    tft.fillCircle(circulo_x, circulo_y, radio, ROSA);
+    delay(2000);
+
+    // Dibuja una elipse centrada
+    tft.fillScreen(NEGRO);
+    int elipse_x = centro_x;
+    int elipse_y = centro_y;
+    int radio_x = ancho_figura / 2;
+    int radio_y = alto_figura / 2;
+    tft.drawEllipse(elipse_x, elipse_y, radio_x, radio_y, MARRON);
+    delay(2000);
+
+    // Rellena una elipse centrada
+    tft.fillScreen(NEGRO);
+    tft.fillEllipse(elipse_x, elipse_y, radio_x, radio_y, NARANJA);
+    delay(2000);
+
+    // Dibuja un triángulo centrado
+    tft.fillScreen(NEGRO);
+    int triangulo_x_1 = centro_x - ancho_figura / 2;
+    int triangulo_x_2 = centro_x + ancho_figura / 2;
+    int triangulo_y_1 = centro_y - alto_figura / 2;
+    int triangulo_y_2 = centro_y + alto_figura / 2;
+    tft.drawTriangle(triangulo_x_1, triangulo_y_1, triangulo_x_2, triangulo_y_2, centro_x, triangulo_y_1, ROJO);
+    delay(2000);
+
+    // Rellena un triángulo centrado
+    tft.fillScreen(NEGRO);
+    tft.fillTriangle(triangulo_x_1, triangulo_y_1, triangulo_x_2, triangulo_y_2, centro_x, triangulo_y_1, AMARILLO);
+    delay(2000);
 }
