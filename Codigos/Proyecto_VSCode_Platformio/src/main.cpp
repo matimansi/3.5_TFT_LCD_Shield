@@ -32,12 +32,12 @@ void setup()
 
 void loop()
 {
-	//testeo_pantalla();
-	testeo_colores;
-	//dibujos_graficos();
+	//testeo_pantalla_general()
+	//testeo_colores();
+	dibujos_graficos();
 }
 
-void testeo_pantalla (void)
+void testeo_pantalla_general (void)
 {
 	// Rellena la pantalla con un color random
 	tft.fillScreen(random(0xFFFF));
