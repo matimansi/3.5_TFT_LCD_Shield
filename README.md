@@ -1,49 +1,46 @@
-_Matias Mansilla_, _Rosario Bernal y Martin Casado_ 
+_Matias Mansilla_
 
 # Índice
 
 - [3.5" TFT LCD Shield con ESP32](#35-tft-lcd-shield-con-esp32)
-- [Contenido del Repositorio](#contenido-del-repositorio)
-- [Herramientas Necesarias](#herramientas-necesarias)
-	- [Hardware](#hardware)
-		- [Componentes necesarios](#componentes-necesarios)
-		- [Conexiones](#conexiones)
-	- [Software](#software)
-		- [Descargar el Proyecto](#descargar-el-proyecto)
-		- [Instalacion Visual Studio Code](#instalacion-visual-studio-code)
-		- [Instalacion PlatformIO IDE](#instalacion-platformio-ide)
-- [Como usar el Proyecto](#como-usar-el-proyecto)
-	- [Abrir Proyecto](#abrir-proyecto)
-	- [Codigo](#codigo)
-		- [Compilar y Subir el Codigo al ESP32](#compilar-y-subir-el-codigo-al-esp32) 
-
+- [Hardware Necesario](#hardware-necesario)
+	- [Componentes necesarios](#componentes-necesarios)
+	- [Conexiones para ESP32](#conexiones-para-esp32)
+- [Descarga repositorio](#descarga-repositorio)
+- [Carpeta "Codigos"](#carpeta-codigos)
+	- [Arduino IDE](#arduino-ide)
+		- [Software](#software)
+		- [Abrir y Editar el codigo](#abrir-y-editar-el-codigo)
+		- [Instalar las librerias necesarias](#instalar-las-librerias-necesarias)
+	- [Visual Studio Code](#visual-studio-code)
+		- [Instalaciones](#instalaciones)
+			- [Instalacion Visual Studio Code](#instalacion-visual-studio-code)
+			- [Instalacion PlatformIO IDE](#instalacion-platformio-ide)
+		- [Como usar PlatformIO](#como-usar-platformio)
+			- [Abrir Proyecto](#abrir-proyecto)
+			- [Codigo](#codigo)
+			- [Compilar y Subir el Codigo al ESP32](#compilar-y-subir-el-codigo-al-esp32)
 
 
 # 3.5" TFT LCD Shield con ESP32
 
-Proyecto de Platformio en Visual Studio Code para programar un display/pantalla 3.5" TFT LCD Shield con un ESP32.
+Codigo en Arduino IDE y Proyecto de Platformio en Visual Studio Code para programar un display/pantalla 3.5" TFT LCD Shield con un Arduino UNO/Mega o ESP32 respectivamente.
 
-## Contenido del Repositorio
+# Hardware Necesario
 
-- Proyecto de PlatformIO IDE en Visual Studio Code.
-- Librerias necesarias.
-- Tabla de Conexiones entre display y ESP32.
-- Codigos de prueba y ejemplos.
+## Componentes necesarios
 
-# Herramientas Necesarias
-
-Para poder programar el display deberas seguir los siguientes pasos
-
-## Hardware
-
-### Componentes necesarios
-
-- ESP32.
-- Cable USB a Micro USB.
+- ESP32 o Arduino UNO/Mega
+- Cables:
+	- ESP32:
+		- Alimentacion y datos: USB a Micro USB
+		- Cables para conexiones: Cables tipo Arduino u otro tipo.
+	- Arduino UNO/Mega:
+		- Alimentacion y datos: USB a Tipo B
+		- Cables para conexiones: No hacen falta, ya que el display es tipo Shield, se coloca por encima de la placa Arduino.
 - 3.5" TFT LCD Shield.
-- Cables M-M; M-H; H-H segun la necesidad.
 
-### Conexiones
+## Conexiones para ESP32
 
 A continuacion, se puede obserar una tabla con las conexiones que se deben realizar entre el Display y el ESP32.
 
@@ -52,9 +49,9 @@ A continuacion, se puede obserar una tabla con las conexiones que se deben reali
 |   Display   | 3V3 | GND | LCD_RST | LCD_CS | LCD_RS | LCD_WR | LCD_RD | LCD_D0 | LCD_D1 | LCD_D2 | LCD_D3 | LCD_D4 | LCD_D5 | LCD_D6 | LCD_D7 | 
 |    ESP32    | 3V3 | GND |   D32   |   D33  |   D18  |   D4   |   D2   |   D12  |   D13  |   D26  |   D25  |   D21  |   D5   |   D27  |   D14  | 
 
-## Software
+# Descarga repositorio
 
-### Descargar el Proyecto
+Para poder utilizar cualquiera de los archivos del repositorio, recomiendo descargar el repositorio en su totalidad y luego abrir/borrar/seleccionar los archivos a utilizar.
 
 Para poder descargar el proyecto dirigite al [repositorio en GitHub](https://github.com/matimansi/3.5_TFT_LCD_Shield_ESP32) y segui los siguientes pasos.
 
@@ -70,11 +67,67 @@ Para poder descargar el proyecto dirigite al [repositorio en GitHub](https://git
 
 Listo, con dichos pasos ya deberias tener una carpeta que contiene todos los documentos del repositorio.
 
-### Instalacion Visual Studio Code 
+# Carpeta "Codigos"
+
+Dentro de la carpeta "Codigos" podras encontrar las 2 opciones de programacion para el display.
+
+## Arduino IDE
+
+Si vas a utilizar el display con un Arduino Uno o Mega, podes borrar todos los archivos del repositorio y conservar el contenido de la carpeta "3.5_TFT_LCD_Shield_Arduino".
+
+### Software
+
+Para poder manejar el codigo recomiendo la instalacion de la ultima version del [Arduino IDE](https://www.arduino.cc/en/software).
+
+#### Abrir y Editar el codigo
+
+Para poder editar el codigo debemos de seguir los siguientes pasos:
+
+1. Abrir el software Arduino IDE
+
+<img src=".\Imagenes\Arduino IDE\Codigo\Paso_1.png">
+
+2. Clickea el boton File o Archivo
+
+<img src=".\Imagenes\Arduino IDE\Codigo\Paso_2.png">
+
+3. Clickea boton Open o Abrir
+
+<img src=".\Imagenes\Arduino IDE\Codigo\Paso_3.png">
+
+4. Busca la carpeta "3.5_TFT_LCD_Shield_Arduino" y dale doble click al archivo "3.5_TFT_LCD_Shield_Arduino.ino".
+
+5. Listo, ya puedes editar el codigo.
+
+#### Instalar las librerias necesarias
+
+Para poder compilar y subir el codigo a una placa Arduino debemos de instalar las librerias necesarias, si es que no se encuentran instaladas.
+
+1. Clickea el boton del Library Manager o Gestor de Bibliotecas
+
+<img src=".\Imagenes\Arduino IDE\Librerias\Paso_1.png">
+
+2. Escribi en el buscador la libreria "MCUFRIEND_kbv" y clickea el boton de Install o Instalar
+
+<img src=".\Imagenes\Arduino IDE\Librerias\Paso_2.png">
+
+3. Escribi en el buscador la libreria "Adafruit GFX Library" y clickea el boton de Install o Instalar
+
+<img src=".\Imagenes\Arduino IDE\Librerias\Paso_3.png">
+
+4. Listo, ya podras compilar y subir el codigo a una placa Arduino.
+
+## Visual Studio Code
+
+Si vas a utilizar el display con un ESP32, podes borrar todos los archivos del repositorio y conservar el contenido de la carpeta "Proyecto_VSCode_Platformio".
+
+### Instalaciones
+
+#### Instalacion Visual Studio Code 
 
 Si no tenes instalado Visual Studio Code [ <img src=".\Imagenes\Logo_VS_Code.png" width="10"/> ] podes hacerlo desde el siguiente [link](https://code.visualstudio.com/).
 
-### Instalacion PlatformIO IDE 
+#### Instalacion PlatformIO IDE 
 
 Una vez instalado Visual Studio Code, debemos instalar la extension PlatformiIO IDE [ <img src=".\Imagenes\Logo_Platformio.png" width="10"/> ]. Para poder hacerlo segui los siguientes pasos.
 
@@ -96,11 +149,11 @@ Una vez instalado Visual Studio Code, debemos instalar la extension PlatformiIO 
 
 <img src=".\Imagenes\Platformio\Instalacion\Paso_4.png">
 
-# Como usar el Proyecto
+### Como usar PlatformIO
 
-A continuacion, se explica como poder utilizar el proyecto para poder programar el ESP32.
+A continuacion, se explica como poder utilizar PlatformIO para abrir el proyecto y programar el ESP32.
 
-## Abrir Proyecto
+#### Abrir Proyecto
 
 Para poder abrir el proyecto y poder programar el ESP32 segui los siguientes pasos.
 
@@ -120,13 +173,13 @@ Para poder abrir el proyecto y poder programar el ESP32 segui los siguientes pas
 
 <img src=".\Imagenes\Platformio\Abrir Proyecto\Paso_4.png">
 
-## Codigo
+#### Codigo
 
 Los codigos se encuentran dentro de la carpeta "src" (source). 
 
 <img src=".\Imagenes\Proyecto\src.png">
 
-### Compilar y Subir el Codigo al ESP32
+#### Compilar y Subir el Codigo al ESP32
 
 - Para compilar el codigo se debe clickear el boton que se parece un tilde en el menu inferior, para poder hacerlo, procurar tener el codigo que se desea compilar abierto.
 
